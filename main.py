@@ -17,9 +17,8 @@ print("Hello world")
 # vidURLS = YouTube.getYout.URLs
 # ImgURLS = GoogleImage.getGoogImage.FinImg
 
-oriQ = QandARet.getQandA.ConfirmedOrig
-ans = QandARet.getQandA.ConfirmedAns
-que = QandARet.getQandA.ConfirmedQuest
+ans = QandARet.getQandA.finAns
+que = QandARet.getQandA.finQuest
 
 ClusterIDOfSubject = 8
 # TextFromSites = TextFromWebGet.webCont.TextFromsites
@@ -38,7 +37,7 @@ try:
         cursor.execute("select database();")
         record = cursor.fetchone()
         print("You're connected to database: ", record)
-
+        '''
         for i in range(0, len(ans)):
             time.sleep(0.5)
             cursor = connection.cursor()
@@ -47,6 +46,7 @@ try:
             insert_tuple_1 = (ClusterIDOfSubject, oriQ[i], que[i], ans[i])
             cursor.execute(sql_insert_query, insert_tuple_1)
             connection.commit()
+            '''
         '''
         for i in range(0, len(vidURLS)):
             time.sleep(0.5)

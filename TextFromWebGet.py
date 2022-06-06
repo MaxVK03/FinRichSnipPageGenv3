@@ -6,10 +6,13 @@ from webdriver_manager.chrome import ChromeDriverManager
 import pandas as pd
 import QandARet
 import re
+import requests
 from webdriver_manager.chrome import ChromeDriverManager
 
-'''
+
 class webCont:
+
+    '''
     #URLToGet = QandARet.getQandA.Top4URL
     TextFromsites = ""
     #DataIN = pd.read_excel(r'C:\Users\Max von Klemperer\Desktop\PythExcels.xlsx')
