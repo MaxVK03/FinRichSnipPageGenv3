@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>12354123123</title>
+  <meta name="description" content="This site gives a detailed analysis of Crypto Casino's">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        dflkjensldjfasdkf
+
+      ]
+    }
+    </script>
+  <style>
+    .responsive {
+      width: 25%;
+      height: auto;
+      text-align: left;
+    }
+
+    p{
+      font-size: 1.36em;
+    }
+    body
+    {
+      background-color: lightgrey;
+      font-family: "Verdana", Helvetica, sans-serif;
+      font-size: 1em;
+      /* color: black */
+    }
+    img {padding: 1.5%; max-width: 100%; width: 500px}
+    h1
+    {
+      font-size: 3em;
+      text-decoration: underline;
+      color: #1a054d;
+    }
+    .nav li {display: inline-block; padding:10px}
+    .row
+    {
+      /*background-color: black;*/
+    }
+    .column {
+      float: left;
+      width: 23%;
+      padding: 1%;
+      background-color: black;
+    }
+    .column img {max-width:100%}
+    /* Clear floats after image containers */
+    .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+  </style>
+</head>
+<body>
+<ul class="nav">
+    <li><a href="#">eToro general information</a></li>
+    <li><a href="#">Crypto</a></li>
+    <li><a href="#">Stocks</a></li>
+    <li><a href="#">withdraws and transfers</a></li>
+    <li><a href="#">Country specifics</a></li>
+    <li><a href="#">How to make money</a></li>
+    <li><a href="#">How to keep safe</a></li>
+</ul>

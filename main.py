@@ -11,6 +11,9 @@ import YouTube
 
 print("Hello world")
 
+print(contents)
+
+
 # NewsTex = NewsGet.getNews.texx
 # cluster = YouTube.getYout.cluster
 # print(cluster[0])
@@ -19,6 +22,8 @@ print("Hello world")
 
 ans = QandARet.getQandA.finAns
 que = QandARet.getQandA.finQuest
+print(ans)
+print(que)
 
 ClusterIDOfSubject = 8
 # TextFromSites = TextFromWebGet.webCont.TextFromsites
@@ -29,7 +34,7 @@ try:
                                          database='RichSnipPageGeneration',
                                          user='root',
                                          password='?w$D<U):;(f]3n3[')
-
+ 
     if connection.is_connected():
         db_Info = connection.get_server_info()
         print("Connected to MySQL Server version ", db_Info)
@@ -37,17 +42,17 @@ try:
         cursor.execute("select database();")
         record = cursor.fetchone()
         print("You're connected to database: ", record)
-        '''
+
         for i in range(0, len(ans)):
             time.sleep(0.5)
             cursor = connection.cursor()
             sql_insert_query = """INSERT INTO qandout(ClusterID, OrigQuestion, Question, Answer)
             VALUES (%s,%s,%s,%s)"""
-            insert_tuple_1 = (ClusterIDOfSubject, oriQ[i], que[i], ans[i])
+            insert_tuple_1 = (ClusterIDOfSubject, que[i], ans[i])
             cursor.execute(sql_insert_query, insert_tuple_1)
             connection.commit()
-            '''
-        '''
+
+
         for i in range(0, len(vidURLS)):
             time.sleep(0.5)
             cursor = connection.cursor()
@@ -80,9 +85,9 @@ try:
         insert_tuple_1 = (ClusterIDOfSubject, NewsTex)
         cursor.execute(sql_insert_query, insert_tuple_1)
         connection.commit()
-        '''
 
-        print("Table connected succsesfully")
+
+        print("Table connected successfully")
 
 except Error as e:
     print("Error while connecting to MySQL", e)

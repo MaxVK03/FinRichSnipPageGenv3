@@ -43,7 +43,7 @@ try:
         NewsData = cursor.fetchall()
         cursor.execute("SELECT * FROM ProcPageText")
         pageData = cursor.fetchall()
-        cursor.execute("SELECT * FROM ProcQandA")
+        cursor.execute("SELECT * FROM qandout")
         QandAData = cursor.fetchall()
         cursor.execute("SELECT * FROM youtubevids")
         YouTubeData = cursor.fetchall()
@@ -51,7 +51,7 @@ try:
 except Error as e:
     print("Error while connecting to MySQL", e)
 
-ClusterID = 2
+ClusterID = 1
 ClusterName = ""
 
 for i in ClusterData:
@@ -103,7 +103,7 @@ for i in range(1,10):
         if not (int(i[0]) == ClusterID):
             YouTubeData.remove(i)
 
-with open(r"C:\Users\Max von Klemperer\Desktop\CarlStuff\WebMaker\header.txt") as f:
+with open(r"HeaderHTML") as f:
     contents = f.readlines()
 
 texxxxt = ""
@@ -234,7 +234,7 @@ for i in QandAData:
     FinalHTML = FinalHTML + "<p>\n" + i[2] + "\n</p>\n<hr>"
     FinalHTML = FinalHTML + "\n\n"
 
-with open(r"C:\Users\Max von Klemperer\Desktop\CarlStuff\WebMaker\QuestionIndSchema.txt") as fs:
+with open(r"QuestionINDSchema") as fs:
     Sch = fs.readlines()
 
 SchemaQ = ""
