@@ -1,2 +1,3 @@
 class getClus:
-    MainCluster = "eToro"
+    MainCluster = "Rugby"
+    ClusterID = 2

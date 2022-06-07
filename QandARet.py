@@ -20,7 +20,7 @@ class getQandA:
     # print(response.text)
     respArr = response.text.split("\"type\"")
     ansArr = []
-    for i in respArr[0:5]:
+    for i in respArr[0:3]:
         currArr = []
         # print(i)
         quest = ""
@@ -47,7 +47,7 @@ class getQandA:
     questions = []
     answers = []
     for i in DictQ.keys():
-        for x in DictQ.get(i)[0:3]:
+        for x in DictQ.get(i)[0:1]:
             quest = x
             print("Inp in google : " + quest)
             time.sleep(5)

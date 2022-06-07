@@ -6,6 +6,8 @@ from transformers import T5ForConditionalGeneration, T5Tokenizer
 import os
 import openai
 
+import ClusterDet
+
 openai.api_key = "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"
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -53,7 +55,7 @@ class MakePage:
     except Error as e:
         print("Error while connecting to MySQL", e)
 
-    ClusterID = 1
+    ClusterID = ClusterDet.getClus.ClusterID
     ClusterName = ""
 
     for i in ClusterData:
@@ -112,7 +114,8 @@ class MakePage:
     for i in contents:
         texxxxt = texxxxt + i
 
-    texxxxt = texxxxt.replace("12354123123", ClusterName + " All you need to know")
+    texxxxt = texxxxt.replace("12354123123", ClusterDet.getClus.MainCluster + " All you need to know")
+    texxxxt = texxxxt.replace("sdfewfsdf", ClusterDet.getClus.MainCluster + " - All you need to know")
     FinalHTML = ""
     FinalHTML = texxxxt + "\n\n"
 
@@ -195,10 +198,11 @@ class MakePage:
             PGTex = r"<p>" + qweqw + r'</p><br>' + '\n\n'
 
             textq = "headline: " + PGTex[0:240]
+            textForTit = textq.replace(" br ", "")
 
             max_len = 256
 
-            encoding = tokenizer.encode_plus(textq, return_tensors="pt")
+            encoding = tokenizer.encode_plus(textForTit, return_tensors="pt")
             input_ids = encoding["input_ids"].to(device)
             attention_masks = encoding["attention_mask"].to(device)
 
@@ -216,6 +220,7 @@ class MakePage:
             resultz = resultz.strip("p>")
             resultz = resultz.replace("<br", "")
             resultz = resultz.replace("br>", "")
+            resultz = resultz.replace("\\", "")
             FinalHTML = FinalHTML + "<h2>" + resultz + "</h2>\n"
 
             FinalHTML = FinalHTML + PGTex
@@ -256,8 +261,8 @@ class MakePage:
         temps = temps.replace("rdererss", NSS)
         temps = temps.replace("asdasdasdas", anss)
         AllScema = AllScema + temps
-    print(AllScema)
-    # AllScema = AllScema.rstrip(AllScema[-1])
+    AllScema = AllScema.rstrip(AllScema[-1])
+    AllScema = AllScema[0:len(AllScema)-1]
 
     FinalHTML = FinalHTML.replace("dflkjensldjfasdkf", AllScema)
     FinalHTML = FinalHTML + "\n</body></html>"
