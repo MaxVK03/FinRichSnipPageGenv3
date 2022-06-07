@@ -1,3 +1,3 @@
 class getClus:
-    MainCluster = "Rugby"
-    ClusterID = 2
+    MainCluster = "Gaming Laptop"
+    ClusterID = 4

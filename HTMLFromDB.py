@@ -193,7 +193,7 @@ class MakePage:
             logog = str(response)
 
             qweqw = logog[logog.find("text\"") + 10:logog.find("created\":") - 11]
-            qweqw = qweqw.replace(r"\n", "<br>")
+            qweqw = qweqw.replace(r"\n", "<br>").replace("\\", "")
 
             PGTex = r"<p>" + qweqw + r'</p><br>' + '\n\n'
 

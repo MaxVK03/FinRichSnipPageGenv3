@@ -1,10 +1,6 @@
 import time
-import numpy as np
 import requests
 from serpapi import GoogleSearch
-import pandas as pd
-import openpyxl
-from collections import defaultdict
 import ClusterDet
 class getQandA:
     global answers
@@ -20,7 +16,7 @@ class getQandA:
     # print(response.text)
     respArr = response.text.split("\"type\"")
     ansArr = []
-    for i in respArr[0:3]:
+    for i in respArr[0:8]:
         currArr = []
         # print(i)
         quest = ""
@@ -44,10 +40,8 @@ class getQandA:
     # All Q and A code is below here
     questions = []
     answers = []
-    questions = []
-    answers = []
     for i in DictQ.keys():
-        for x in DictQ.get(i)[0:1]:
+        for x in DictQ.get(i)[0:3]:
             quest = x
             print("Inp in google : " + quest)
             time.sleep(5)
@@ -64,7 +58,6 @@ class getQandA:
 
             ansCount = 0
             questCount = 0
-
             search = GoogleSearch(params)
             results = search.get_dict()
             try:

@@ -36,19 +36,21 @@ class webCont:
     for qw in results.get("organic_results"):
         TotURL.append(qw.get("link"))
     xa = 8
-    for i in TotURL[0:8]:
-        driver = webdriver.WebDriver(ChromeDriverManager().install())
+    for i in TotURL[0:12]:
+        options = Options()
+        options.headless = True
+        driver = webdriver.WebDriver(ChromeDriverManager().install(), options=options)
         options = Options()
         options.headless = True
         if not ("jpost.com" in i or "wtkr" in i or "facebook" in i or "mensjournal" in i or "collinsdictionary" in i or "dictionary" in i):
             try:
-                driver.get(i)
-                driver.set_page_load_timeout(5)
                 options = Options()
                 options.headless = True
+                driver.get(i)
+                driver.set_page_load_timeout(5)
                 # driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS)
                 al = driver.find_elements_by_css_selector('p')
-                for x in al[1:7]:
+                for x in al[3:18]:
                     if len(x.text) > 50:
                         texttt = x.text
                         texttt = re.sub(r'\[.*?\]', '', texttt)
