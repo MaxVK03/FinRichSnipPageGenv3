@@ -16,7 +16,7 @@ class getQandA:
     # print(response.text)
     respArr = response.text.split("\"type\"")
     ansArr = []
-    for i in respArr[0:8]:
+    for i in respArr[0:4]:
         currArr = []
         # print(i)
         quest = ""

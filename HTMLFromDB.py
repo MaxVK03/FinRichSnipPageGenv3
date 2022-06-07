@@ -82,6 +82,10 @@ class MakePage:
         if not (int(i[0]) == ClusterID):
             QandAData.remove(i)
 
+    for i in QandAData:
+        if i[2] == None or "none" in i[2]:
+            QandAData.remove(i)
+
     for i in range(1, 100):
         for i in QandAData:
             if not (int(i[0]) == ClusterID):
@@ -267,3 +271,15 @@ class MakePage:
     FinalHTML = FinalHTML.replace("dflkjensldjfasdkf", AllScema)
     FinalHTML = FinalHTML + "\n</body></html>"
     print(FinalHTML)
+
+    connection = mysql.connector.connect(host='34.203.153.217',
+                                         database='RichSnipPageGeneration',
+                                         user='root',
+                                         password='?w$D<U):;(f]3n3[')
+
+    cursor = connection.cursor()
+    sql_insert_query = """INSERT INTO ClusterHTML(ClusterID, ClusterHTML)
+                                VALUES (%s,%s)"""
+    insert_tuple_1 = (ClusterDet.getClus.ClusterID, FinalHTML)
+    cursor.execute(sql_insert_query, insert_tuple_1)
+    connection.commit()

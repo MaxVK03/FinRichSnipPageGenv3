@@ -22,11 +22,6 @@ ClusterIDOfSubject = ClusterDet.getClus.ClusterID
 TextFromSites = TextFromWebGet.webCont.TextFromsites
 print(TextFromSites)
 
-for i in range(0, len(ans)-1):
-    if ans[i] == None or "none" in ans[i].lower():
-        ans.remove(ans[i])
-        que.remove(que[i])
-
 
 try:
     connection = mysql.connector.connect(host='34.203.153.217',

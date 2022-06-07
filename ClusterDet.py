@@ -1,3 +1,3 @@
 class getClus:
-    MainCluster = "Gaming Laptop"
-    ClusterID = 4
+    MainCluster = "eToro"
+    ClusterID = 1

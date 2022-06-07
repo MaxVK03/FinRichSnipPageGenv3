@@ -36,14 +36,18 @@ class webCont:
     for qw in results.get("organic_results"):
         TotURL.append(qw.get("link"))
     xa = 8
-    for i in TotURL[0:12]:
+    for i in TotURL[0:8]:
+        print(i)
         options = Options()
         options.headless = True
         driver = webdriver.WebDriver(ChromeDriverManager().install(), options=options)
+        driver.set_page_load_timeout(5)
         options = Options()
         options.headless = True
-        if not ("jpost.com" in i or "wtkr" in i or "facebook" in i or "mensjournal" in i or "collinsdictionary" in i or "dictionary" in i):
+        if not ("jpost.com" in i or "wtkr" in i or "facebook" in i or "mensjournal" in i or "collinsdictionary" in i
+                or "dictionary" in i):
             try:
+
                 options = Options()
                 options.headless = True
                 driver.get(i)
