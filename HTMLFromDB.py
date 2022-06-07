@@ -6,7 +6,7 @@ from transformers import T5ForConditionalGeneration, T5Tokenizer
 import os
 import openai
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -43,7 +43,7 @@ class MakePage:
             ImageData = cursor.fetchall()
             cursor.execute("SELECT * FROM newstext")
             NewsData = cursor.fetchall()
-            cursor.execute("SELECT * FROM ProcPageText")
+            cursor.execute("SELECT * FROM pagetext")
             pageData = cursor.fetchall()
             cursor.execute("SELECT * FROM qandout")
             QandAData = cursor.fetchall()
@@ -176,7 +176,7 @@ class MakePage:
                 NumImg += 1
 
         else:
-            openai.api_key = "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"
+            openai.api_key = "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"
             response = openai.Completion.create(
                 engine="text-davinci-002",
                 prompt="What are 5 key points In the following paragraph: " + TextIns,
@@ -256,8 +256,9 @@ class MakePage:
         temps = temps.replace("rdererss", NSS)
         temps = temps.replace("asdasdasdas", anss)
         AllScema = AllScema + temps
+    print(AllScema)
+    # AllScema = AllScema.rstrip(AllScema[-1])
 
-    AllScema = AllScema.rstrip(AllScema[-1])
     FinalHTML = FinalHTML.replace("dflkjensldjfasdkf", AllScema)
     FinalHTML = FinalHTML + "\n</body></html>"
     print(FinalHTML)

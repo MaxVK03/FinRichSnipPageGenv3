@@ -3,31 +3,24 @@ from datetime import time
 import time
 # import NewsGet
 import mysql.connector
+
+
 import QandARet
 import GoogleImage
 import QandARet
-# import TextFromWebGet
+import TextFromWebGet
 import YouTube
 
-print("Hello world")
 
-print(contents)
-
-
-# NewsTex = NewsGet.getNews.texx
-# cluster = YouTube.getYout.cluster
-# print(cluster[0])
-# vidURLS = YouTube.getYout.URLs
-# ImgURLS = GoogleImage.getGoogImage.FinImg
-
+vidURLS = YouTube.getYout.URLs
+ImgURLS = GoogleImage.getGoogImage.FinImg
 ans = QandARet.getQandA.finAns
 que = QandARet.getQandA.finQuest
 print(ans)
 print(que)
-
 ClusterIDOfSubject = 1
-# TextFromSites = TextFromWebGet.webCont.TextFromsites
-# print(TextFromSites)
+TextFromSites = TextFromWebGet.webCont.TextFromsites
+print(TextFromSites)
 
 try:
     connection = mysql.connector.connect(host='34.203.153.217',
@@ -78,12 +71,13 @@ try:
         insert_tuple_1 = (ClusterIDOfSubject, TextFromSites)
         cursor.execute(sql_insert_query, insert_tuple_1)
         connection.commit()
-
+        '''
         cursor = connection.cursor()
         sql_insert_query = """INSERT INTO newstext(ClusterID, NewsText)
                                        VALUES (%s,%s)"""
         insert_tuple_1 = (ClusterIDOfSubject, NewsTex)
         cursor.execute(sql_insert_query, insert_tuple_1)
+        '''
         connection.commit()
 
 
@@ -91,3 +85,10 @@ try:
 
 except Error as e:
     print("Error while connecting to MySQL", e)
+
+
+
+
+
+import HTMLFromDB
+HTMLFromDB.MakePage()

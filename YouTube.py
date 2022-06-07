@@ -4,14 +4,13 @@ from serpapi import GoogleSearch
 import pandas as pd
 import openpyxl
 from collections import defaultdict
-
+import ClusterDet
 
 class getYout:
-
     params = {
         "api_key": "6a9b9042c383a118a34f97cba712361dcc662b2a96fc5cd4def6e33cfe110641",
         "engine": "youtube",
-        "search_query": "etoro safety information"
+        "search_query": ClusterDet.getClus.MainCluster + " information"
     }
 
     search = GoogleSearch(params)

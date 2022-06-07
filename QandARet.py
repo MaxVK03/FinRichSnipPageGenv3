@@ -5,14 +5,11 @@ from serpapi import GoogleSearch
 import pandas as pd
 import openpyxl
 from collections import defaultdict
-
-
+import ClusterDet
 class getQandA:
     global answers
     url = "https://ask-your-question.p.rapidapi.com/question"
-
-    querystring = {"query": "eToro"}
-
+    querystring = {"query": ClusterDet.getClus.MainCluster}
     headers = {
         "X-RapidAPI-Host": "ask-your-question.p.rapidapi.com",
         "X-RapidAPI-Key": "a427bdc201msh61ea63ec5feeebcp1f72b0jsn0e7c21fe23cc"
@@ -23,7 +20,7 @@ class getQandA:
     # print(response.text)
     respArr = response.text.split("\"type\"")
     ansArr = []
-    for i in respArr:
+    for i in respArr[0:5]:
         currArr = []
         # print(i)
         quest = ""
@@ -35,10 +32,8 @@ class getQandA:
             currArr.append(z.replace("answers\":[", "").replace("\"", "").replace("]}", "").replace("{", ""))
 
         DictQ[quest] = currArr
-
     QID = 0
     Anss = []
-
     ConfirmedAns = []
     ConfirmedQuest = []
     ConfirmedOrig = []
@@ -52,7 +47,7 @@ class getQandA:
     questions = []
     answers = []
     for i in DictQ.keys():
-        for x in DictQ.get(i)[0:5]:
+        for x in DictQ.get(i)[0:3]:
             quest = x
             print("Inp in google : " + quest)
             time.sleep(5)
