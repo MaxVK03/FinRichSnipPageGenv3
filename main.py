@@ -25,7 +25,7 @@ que = QandARet.getQandA.finQuest
 print(ans)
 print(que)
 
-ClusterIDOfSubject = 8
+ClusterIDOfSubject = 1
 # TextFromSites = TextFromWebGet.webCont.TextFromsites
 # print(TextFromSites)
 
@@ -46,8 +46,8 @@ try:
         for i in range(0, len(ans)):
             time.sleep(0.5)
             cursor = connection.cursor()
-            sql_insert_query = """INSERT INTO qandout(ClusterID, OrigQuestion, Question, Answer)
-            VALUES (%s,%s,%s,%s)"""
+            sql_insert_query = """INSERT INTO qandout(ClusterID, Question, Answer)
+            VALUES (%s,%s,%s)"""
             insert_tuple_1 = (ClusterIDOfSubject, que[i], ans[i])
             cursor.execute(sql_insert_query, insert_tuple_1)
             connection.commit()
