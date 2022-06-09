@@ -1,3 +1,3 @@
 class getClus:
-    MainCluster = "eToro"
-    ClusterID = 1
+    MainCluster = "cbd oil"
+    ClusterID = 10

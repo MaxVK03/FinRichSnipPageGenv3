@@ -6,6 +6,11 @@ Pip installs are the following
 
 selenium
 
-transformers
+pip install transformers
 
-serpapi, called google search or somethings
+pip install selenium
+
+pip install sentence_piece
+
+pip install webdriver-manager
+

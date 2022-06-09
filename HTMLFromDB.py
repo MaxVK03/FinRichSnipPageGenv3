@@ -242,8 +242,12 @@ class MakePage:
     for i in QandAData:
         FinalHTML = FinalHTML + "<h3>\n<strong>Question: " + i[1] + "</strong>\n</h3>\n"
         # FinalHTML = FinalHTML + r"<p>" + i[2] + r"</p><br>" + "\n"
-        FinalHTML = FinalHTML + "<p>\n" + i[2] + "\n</p>\n<hr>"
-        FinalHTML = FinalHTML + "\n\n"
+        if i[2] != None:
+            FinalHTML = FinalHTML + "<p>\n" + i[2] + "\n</p>\n<hr>"
+            FinalHTML = FinalHTML + "\n\n"
+        elif i[2] == None:
+            FinalHTML = FinalHTML + "<p>\n" + "Question Failed" + "\n</p>\n<hr>"
+            FinalHTML = FinalHTML + "\n\n"
 
     with open(r"QuestionINDSchema") as fs:
         Sch = fs.readlines()
@@ -260,7 +264,11 @@ class MakePage:
         name = str.join(" ", name.splitlines())
         # name = name.replace("\n", "")
         anss = i[2]
-        anss = str.join(" ", anss.splitlines()).replace("\"", "")
+        try:
+            anss = str.join(" ", anss.splitlines()).replace("\"", "")
+
+        except:
+            anss = "Hello user"
         NSS = "\"" + name + "\","
         temps = temps.replace("rdererss", NSS)
         temps = temps.replace("asdasdasdas", anss)

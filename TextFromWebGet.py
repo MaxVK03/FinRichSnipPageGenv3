@@ -36,7 +36,9 @@ class webCont:
     for qw in results.get("organic_results"):
         TotURL.append(qw.get("link"))
     xa = 8
-    for i in TotURL[0:8]:
+    counter = 0
+    while len(TextFromsites) < 5000 and counter < len(TotURL)-1:
+        i = TotURL[counter]
         print(i)
         options = Options()
         options.headless = True
@@ -63,4 +65,5 @@ class webCont:
                 xa += 1
                 # driver.close()
         driver.close()
+        counter += 1
 
